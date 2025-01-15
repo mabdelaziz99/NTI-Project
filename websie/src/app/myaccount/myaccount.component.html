@@ -1,0 +1,31 @@
+<div class="account-page">
+    <h1>Your Account</h1>
+    <p>Manage your personal details, orders, addresses, and more.</p>
+  
+    <div class="account-sections">
+      <!-- Orders -->
+      <div class="account-card" (click)="navigateTo('orders')">
+        <h3>Your Orders</h3>
+        <p>Track, return, or buy things again.</p>
+      </div>
+  
+      <!-- Addresses -->
+      <div class="account-card" (click)="navigateTo('addresses')">
+        <h3>Your Addresses</h3>
+        <p>Edit or add delivery addresses.</p>
+      </div>
+  
+      <!-- Account Settings -->
+      <div class="account-card" (click)="navigateTo('settings')">
+        <h3>Account Settings</h3>
+        <p>Change your email, password, and other settings.</p>
+      </div>
+  
+      <!-- Wishlist -->
+      <div class="account-card" (click)="navigateTo('wishlist')">
+        <h3>Your Wishlist</h3>
+        <p>View and manage your saved items.</p>
+      </div>
+    </div>
+  </div>
+  

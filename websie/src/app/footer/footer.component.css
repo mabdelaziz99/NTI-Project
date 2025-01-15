@@ -1,0 +1,14 @@
+div{
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    background-color: black;
+    
+    width: 100%;
+}
+p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
