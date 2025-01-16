@@ -2,9 +2,11 @@ const cartModel = require('../Models/cart.model');
 
 exports.addCartItem = async(req,res)=>{
     try{
-       
+        console.log('Controller log ',req.body);
+
         // req.body.imageURL = req.file.filename;
         const cartItem = await cartModel.create(req.body);
+        console.log('Controller log ',req.body);
         res.status(201).json(cartItem);
     }
     catch(err){
@@ -32,8 +34,8 @@ exports.getCartItemsCount= async(req,res)=>{
 }
 exports.getCartItems= async(req,res)=>{
     try{
-        const products = await productModel.find();
-        res.status(200).json(products);
+        const cart = await cartModel.find();
+        res.status(200).json(cart);
 
     } catch(err){
         res.status(500).json({error:err.message});

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -8,11 +8,18 @@ import { CartService } from '../services/cart.service';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent {
-  cartProducts: any;
+export class CartComponent implements OnInit {
+  cartProducts!: any[];
 
   constructor(private cartService: CartService) {
     // Call the service's method in the constructor or ngOnInit()
-    this.cartProducts = this.cartService.getCartItemsList();
   }
-}
+  ngOnInit(): void {
+    this.cartService.getCartItemsList().subscribe(data=>{
+      this.cartProducts= data;
+      console.log(data);
+      
+  //  this.cartProducts = this.cartService.getCartItemsList();
+  })
+ 
+}}

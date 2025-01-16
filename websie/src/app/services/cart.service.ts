@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +12,33 @@ export class CartService {
     { id: '2', name: 'Product B', price: 200, stock: 5 }
   ]
 
-  constructor() {
+  constructor(private _http:HttpClient) { 
     
-   }
+  }
    getCartItemsCount(){
     return 5
   }
-  getCartItemsList(){
-    return this.products
+   apiGetURL = 'http://localhost:3000/cart/get'
+  getCartItemsList():Observable<any>{
+    // this._http.get<any>(this.apiGetURL).pipe(tap(res=>{
+    //   console.log(res);  
+    // }));
+    return this._http.get<any>(this.apiGetURL);
   }
-}
+   apiPostURL = 'http://localhost:3000/cart/add'
+  addToCart(product: any):Observable<any>{
+    // return this._http.post<any>(this.apiPostURL,{name: 'frogger'});
+    //     console.log(product)
+    //     this._http.post<any>(this.apiPostURL,product).pipe(
+    //     tap(res=>{
+    //     console.log(res)
+        
+    //   })
+      console.log(product)
+
+    return this._http.post<any>(this.apiPostURL, product)
+
+    // return this._http.post(this.apiPostURL, product);
+
+      }
+  }

@@ -2,11 +2,11 @@
     <h2>Your Cart</h2>
   
     <!-- Display the cart items -->
-    <div *ngFor="let item of cartProducts" class="cart-item">
+    <div *ngFor="let cart of cartProducts" class="cart-item">
       <div class="product-info">
-        <img [src]="item.imgURL">
-        <h3>{{ item.name }}</h3>
-        <p>Price: ${{ item.price }}</p>
+        <h3>{{ cart.name }}</h3>
+        <p>Description: ${{ cart.desc }}</p>
+        <p>Price: ${{ cart.price }}</p>
       </div>
     </div>
 </div>
