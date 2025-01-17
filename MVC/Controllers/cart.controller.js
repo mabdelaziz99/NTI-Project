@@ -25,8 +25,9 @@ exports.removeCartItem= async(req,res)=>{
 }
 exports.getCartItemsCount= async(req,res)=>{
     try{
-        const products = await productModel.find();
-        res.status(200).json(products);
+        const cartCount = await cartModel.find()
+        log(cartCount);
+        res.status(200).json(cartCount);
 
     } catch(err){
         res.status(500).json({error:err.message});
@@ -35,6 +36,15 @@ exports.getCartItemsCount= async(req,res)=>{
 exports.getCartItems= async(req,res)=>{
     try{
         const cart = await cartModel.find();
+        res.status(200).json(cart);
+
+    } catch(err){
+        res.status(500).json({error:err.message});
+    }
+}
+exports.deleteAllCartItems= async(req,res)=>{
+    try{
+        const cart = await cartModel.deleteMany();
         res.status(200).json(cart);
 
     } catch(err){

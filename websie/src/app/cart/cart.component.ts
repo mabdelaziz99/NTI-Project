@@ -18,8 +18,20 @@ export class CartComponent implements OnInit {
     this.cartService.getCartItemsList().subscribe(data=>{
       this.cartProducts= data;
       console.log(data);
-      
   //  this.cartProducts = this.cartService.getCartItemsList();
   })
- 
-}}
+  
+  // this.cartService.clearCart().subscribe()
+}
+clearCart(): void {
+  this.cartService.clearCart().subscribe(
+    (response) => {
+      console.log('Cart cleared successfully:', response);
+      this.cartProducts = []; // Update the cartProducts array to reflect the cleared cart
+    },
+    (error) => {
+      console.error('Error clearing cart:', error);
+    }
+  );
+}
+}

@@ -8,7 +8,7 @@ import { CartService } from '../services/cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  cartCount: Number;
+  cartCount: any;
 
   constructor(private cartService: CartService) {
     // Call the service's method in the constructor or ngOnInit()

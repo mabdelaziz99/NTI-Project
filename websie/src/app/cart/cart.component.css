@@ -66,4 +66,7 @@
   .checkout-btn:hover {
     background-color: #218838;
   }
+  .cart-container button{
+    margin: auto;
+  }
   
