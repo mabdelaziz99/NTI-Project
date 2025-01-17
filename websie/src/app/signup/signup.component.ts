@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { UserService } from '../services/user.service';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  constructor(private _userS:UserService){}
+  constructor(private _userS:UserService, private _router: Router){}
 
   changeUsername(myForm: NgForm){
     myForm.form.patchValue({username:'ali ali ali',email:'ali@ali.com'})
@@ -20,13 +21,15 @@ export class SignupComponent {
   }
   postData(myForm: NgForm)
   {
-    myForm.value.userType = "67692f2e41458b4ea3e4286f"
-    this._userS.createUser(myForm.value).subscribe()
+    
     console.log(myForm.value)
     if(myForm.invalid){
       console.log('invalid')
     }
     else{
+      myForm.value.userType = "67692f2e41458b4ea3e4286f"
+    this._userS.createUser(myForm.value).subscribe()
+    this._router.navigate(['/login'])
     console.log('valid')
     }
   }
