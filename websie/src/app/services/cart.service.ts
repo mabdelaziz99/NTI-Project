@@ -13,7 +13,7 @@ export class CartService {
   // ]
 
   constructor(private _http:HttpClient) { }
-  
+
   apiGetCountURL = 'http://localhost:3000/cart/getCount'
   getCartItemsCount():Observable<any>{
     return this._http.get<any>(this.apiGetCountURL)
@@ -40,5 +40,10 @@ export class CartService {
   apiDeleteURL = 'http://localhost:3000/cart/deleteAll'
   clearCart():Observable<any>{
   return this._http.delete<any>(this.apiDeleteURL)
+  }
+
+  apiRemoveURL = 'http://localhost:3000/cart/remove'
+  removeCartItem(product: any):Observable<any>{
+  return this._http.delete<any>(this.apiRemoveURL, product)
   }
 }

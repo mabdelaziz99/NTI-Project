@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { ProductsService } from '../services/products.service';
 import { OrderService } from '../services/order.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,9 @@ import { OrderService } from '../services/order.service';
 export class DashboardComponent implements OnInit {
   products!:any[];
   orders!:any[];
+  users!:any[];
 
-  constructor(private _productS:ProductsService, private _auth: AuthService, private _order: OrderService){
+  constructor(private _productS:ProductsService, private _auth: AuthService, private _order: OrderService, private _user: UserService){
   }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class DashboardComponent implements OnInit {
    this._order.getOrder().subscribe(data=>{
     this.orders= data;
   })
+
+  this._user.getUsers().subscribe(data=>{
+    this.users= data;
+  })
   }
 
   // orders = [
@@ -34,10 +40,10 @@ export class DashboardComponent implements OnInit {
   //   { id: 102, customer: 'Jane Smith', total: 300, status: 'Shipped' }
   // ];
 
-  users = [
-    { id: 1, name: 'Admin', email: 'admin@example.com', role: 'Admin' },
-    { id: 2, name: 'User', email: 'user@example.com', role: 'Customer' }
-  ];
+  // users = [
+  //   { id: 1, name: 'Admin', email: 'admin@example.com', role: 'Admin' },
+  //   { id: 2, name: 'User', email: 'user@example.com', role: 'Customer' }
+  // ];
 
   // Methods for handling actions
   addProduct(): void {

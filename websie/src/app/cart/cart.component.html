@@ -5,11 +5,12 @@
     </div>
     <button (click)="clearCart()">Clear Cart</button>
     <!-- Display the cart items -->
-    <div *ngFor="let cart of cartProducts" class="cart-item">
+    <div *ngFor="let p of cartProducts" class="cart-item">
       <div class="product-info">
-        <h3>{{ cart.name }}</h3>
-        <p>Price: ${{ cart.price }}</p>
+        <h3>{{ p.name }}</h3>
+        <p>Price: ${{ p.price }}</p>
       </div>
+      <button (click)="removeCartItem(p._id)">Remove Item</button>
     </div>
     <button (click)="goToCheckout()">Go To Checkout</button>
   </div>

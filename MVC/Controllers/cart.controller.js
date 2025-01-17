@@ -14,15 +14,15 @@ exports.addCartItem = async(req,res)=>{
     }
 }
 
-// exports.removeCartItem= async(req,res)=>{
-//     try{
-//         const products = await productModel.find();
-//         res.status(200).json(products);
+exports.removeCartItem= async(req,res)=>{
+    try{
+        const products = await cartModel.findByIdAndDelete(req);
+        res.status(200).json(products);
 
-//     } catch(err){
-//         res.status(500).json({error:err.message});
-//     }
-// }
+    } catch(err){
+        res.status(500).json({error:err.message});
+    }
+}
 exports.getCartItemsCount= async(req,res)=>{
     try{
         const cart = await cartModel.find()

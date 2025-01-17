@@ -30,14 +30,25 @@
       <p>View and update customer orders.</p>
       <div *ngFor="let o of orders" class="cart-item">
         <div class="product-info">
-          <h4>{{ o.name }}</h4>
-          <p>Price: ${{ o.address }}</p> <hr>
+          <h4>Order ID: {{ o._id }}</h4>
+          <p>Price: ${{ o.price }}</p> <hr>
+          <p>Address: {{ o.address }}</p> <hr>
+          <p>City: {{ o.city }}</p> <hr>
         </div>
       </div>
     </div>
     <div id="users" class="card">
       <h3>Manage Users</h3>
       <p>View and manage user accounts.</p>
+      <div *ngFor="let u of users" class="cart-item">
+        <div class="product-info">
+          <h4>User ID: {{ u._id }}</h4>
+          <p>Name: {{ u.name }}</p> <hr>
+          <p>Age: {{ u.age }}</p> <hr>
+          <p>Email: {{ u.email }}</p> <hr>
+          <p>Gender: {{ u.gender }}</p> <hr>
+        </div>
+      </div>
     </div>
     <div id="settings" class="card">
       <h3>Settings</h3>

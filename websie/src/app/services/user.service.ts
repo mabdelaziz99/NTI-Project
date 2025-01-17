@@ -46,4 +46,12 @@ console.log(headers)
  return this._http.post<any>(this.url,userType,{headers})
  
   }
+
+  apiGetURL = 'http://localhost:3000/user'
+  getUsers():Observable<any>{
+    // this._http.get<any>(this.apiGetURL).pipe(tap(res=>{
+    //   console.log(res);  
+    // }));
+    return this._http.get<any>(this.apiGetURL);
+  }
 }

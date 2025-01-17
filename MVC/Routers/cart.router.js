@@ -7,6 +7,7 @@ router.post('/add',cartController.addCartItem);
 router.get('/get',cartController.getCartItems);
 router.get('/getCount',cartController.getCartItemsCount);
 router.delete('/deleteAll',cartController.deleteAllCartItems);
+router.delete('/remove', cartController.removeCartItem);
 // router.post('/login',cartController.login);
 
 module.exports = router;

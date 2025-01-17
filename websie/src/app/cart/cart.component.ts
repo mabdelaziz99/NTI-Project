@@ -35,6 +35,17 @@ clearCart(): void {
     }
   );
 }
+
+removeCartItem(product: any): void {
+  this.cartService.removeCartItem(product).subscribe(
+    (response) => {
+      console.log('Cart Item removed successfully:', response);
+    },
+    (error) => {
+      console.error('Error clearing cart:', error);
+    }
+  );
+}
 goToCheckout(): void{
   this._router.navigate(['/checkout'])
 }
