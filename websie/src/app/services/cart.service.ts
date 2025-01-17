@@ -36,7 +36,7 @@ export class CartService {
     //   })
       console.log(product)
 
-    return this._http.post<any>(this.apiPostURL, product)
+    return this._http.post<any>(this.apiPostURL, {"name" :product.name , "price" : product.price , "product_id" : product._id})
 
     // return this._http.post(this.apiPostURL, product);
 
