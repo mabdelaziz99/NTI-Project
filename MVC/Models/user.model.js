@@ -18,6 +18,24 @@ const userSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:'userType',
         required:true
+    },
+    birthDate:{
+        type: Date
+    },
+    phoneNumber:{
+        type: Number
+    },
+    gender:{
+        type: String
+    },
+    status:{
+        type: String
+    },
+    about:{
+        type: String
+    },
+    age:{
+        type: Number
     }
 },{timestamps:true});
 

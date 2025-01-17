@@ -3,9 +3,9 @@ const hashing = require('../utili/hashing');
 const auth = require('../utili/auth');
 exports.createUser= async (req,res)=>{
    try{
-    const {name,email,password,userType}=req.body;
+    const {name,email,password,userType,gender,age,status,birthDate,phoneNumber}=req.body;
 const hashedPassword = await hashing.hashPassword(password);
-    const user= await userModel.create({name,email,userType,password:hashedPassword});
+    const user= await userModel.create({name,email,userType,password:hashedPassword,gender,age,status,birthDate,phoneNumber});
     res.status(201).json(user);
    }
    catch(err){
