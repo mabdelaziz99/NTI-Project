@@ -17,11 +17,23 @@
     <div id="products" class="card">
       <h3>Manage Products</h3>
       <p>Add, edit, or remove products from the inventory.</p>
+      <div *ngFor="let p of products" class="cart-item">
+        <div class="product-info">
+          <h4>{{ p.name }}</h4>
+          <p>Price: ${{ p.price }}</p> <hr>
+        </div>
+      </div>
       <button (click)="addProduct()">Add Product</button>
     </div>
     <div id="orders" class="card">
       <h3>Manage Orders</h3>
       <p>View and update customer orders.</p>
+      <div *ngFor="let o of orders" class="cart-item">
+        <div class="product-info">
+          <h4>{{ o.name }}</h4>
+          <p>Price: ${{ o.address }}</p> <hr>
+        </div>
+      </div>
     </div>
     <div id="users" class="card">
       <h3>Manage Users</h3>

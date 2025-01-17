@@ -22,7 +22,8 @@ const routes: Routes = [
   {path:'product',component:ProductsListComponent},
   {path:'product-details',component:ProductDetailsComponent},
   {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent,canActivate:[authGuard]},
+  {path:'dashboard',component:DashboardComponent},
+  // canActivate:[authGuard]
   {path:'signup',component:SignupComponent},
   {path:'rf',component:RfComponent},
   {path:'addtype',component:AddUserTypeComponent},

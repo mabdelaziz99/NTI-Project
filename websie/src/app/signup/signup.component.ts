@@ -29,7 +29,7 @@ export class SignupComponent {
     else{
       myForm.value.userType = "67692f2e41458b4ea3e4286f"
     this._userS.createUser(myForm.value).subscribe()
-    this._router.navigate(['/login'])
+    this._router.navigate(['/dashboard'])
     console.log('valid')
     }
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { ProductsService } from '../services/products.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,15 +11,28 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  products = [
-    { id: 1, name: 'Product A', price: 100, stock: 10 },
-    { id: 2, name: 'Product B', price: 200, stock: 5 }
-  ];
+  products!:any[];
+  orders!:any[];
 
-  orders = [
-    { id: 101, customer: 'John Doe', total: 150, status: 'Pending' },
-    { id: 102, customer: 'Jane Smith', total: 300, status: 'Shipped' }
-  ];
+  constructor(private _productS:ProductsService, private _auth: AuthService, private _order: OrderService){
+  }
+
+  ngOnInit(): void {
+   this._productS.getProducts().subscribe(data=>{
+    this.products= data;
+    console.log(data)
+
+    console.log(this._auth.getDecodeToken());
+   })
+   this._order.getOrder().subscribe(data=>{
+    this.orders= data;
+  })
+  }
+
+  // orders = [
+  //   { id: 101, customer: 'John Doe', total: 150, status: 'Pending' },
+  //   { id: 102, customer: 'Jane Smith', total: 300, status: 'Shipped' }
+  // ];
 
   users = [
     { id: 1, name: 'Admin', email: 'admin@example.com', role: 'Admin' },
@@ -53,13 +68,6 @@ export class DashboardComponent implements OnInit {
     console.log('Logout clicked');
     // Logic for logout functionality
     alert('Logout functionality is not yet implemented.');
-  }
-constructor(private _auth:AuthService){
- 
-}
-  ngOnInit(): void {
-    console.log(this._auth.getDecodeToken());
-    
   }
 
 

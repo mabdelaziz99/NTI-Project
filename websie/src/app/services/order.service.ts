@@ -22,4 +22,12 @@ export class OrderService {
     // return this._http.post(this.apiPostURL, product);
   }
 
+  apiGetURL = 'http://localhost:3000/order/get'
+  getOrder():Observable<any>{
+    // this._http.get<any>(this.apiGetURL).pipe(tap(res=>{
+    //   console.log(res);  
+    // }));
+    return this._http.get<any>(this.apiGetURL);
+  }
+
 }

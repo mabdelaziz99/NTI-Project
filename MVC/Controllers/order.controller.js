@@ -13,3 +13,14 @@ exports.createOrder = async(req,res)=>{
         res.status(500).json({error:err.message});
     }
 }
+exports.getOrder= async(req,res)=>{
+    try{
+        const orders = await orderModel.find();
+        res.status(200).json(orders);
+    
+    } catch(err){
+        res.status(500).json({error:err.message});
+    }
+}
+
+

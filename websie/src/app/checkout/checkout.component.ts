@@ -33,6 +33,7 @@ export class CheckoutComponent implements OnInit {
   createOrder(myForm: NgForm){
     console.log(myForm.value);
     myForm.value.product_id=this.orderProducts
+    myForm.value.price = this.orderSum
     this.orderService.createOrder(myForm.value).subscribe(
       {
        next: ()=> {
