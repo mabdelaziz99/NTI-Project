@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   cartProducts!: any[];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private _router: Router) {
     // Call the service's method in the constructor or ngOnInit()
   }
   ngOnInit(): void {
@@ -33,5 +34,8 @@ clearCart(): void {
       console.error('Error clearing cart:', error);
     }
   );
+}
+goToCheckout(): void{
+  this._router.navigate(['/checkout'])
 }
 }

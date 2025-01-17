@@ -19,6 +19,7 @@ import { RfComponent } from './rf/rf.component';
 import { AddUserTypeComponent } from './add-user-type/add-user-type.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CartComponent } from './cart/cart.component';
     SignupComponent,
     RfComponent,
     AddUserTypeComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   
   ],
   imports: [

@@ -12,6 +12,7 @@ import { AddUserTypeComponent } from './add-user-type/add-user-type.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ProductDetailsComponent } from './products-list/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   // {path:'',component:HomeComponent}
@@ -27,6 +28,8 @@ const routes: Routes = [
   {path:'addtype',component:AddUserTypeComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'cart',component:CartComponent},
+  {path:'checkout',component:CheckoutComponent},
+
   {path:'**',component:NotFoundComponent},
 ];
 
